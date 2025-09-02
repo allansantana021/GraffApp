@@ -1,11 +1,17 @@
 package entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
 public class Grafite {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 

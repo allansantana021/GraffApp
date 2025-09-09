@@ -1,11 +1,9 @@
 package controller;
 
 import entity.Comentario;
-import org.apache.coyote.Response;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import service.ComentarioService;
 
 import java.util.List;
@@ -14,14 +12,38 @@ import java.util.List;
 @RequestMapping("api/comentario")
 public class ComentarioController {
 
-    private ComentarioService comentarioService;
+    private final ComentarioService comentarioService;
 
     public ComentarioController(ComentarioService comentarioService){
         this.comentarioService = comentarioService;
-
     }
+
     @GetMapping("/listar")
     public ResponseEntity<List<Comentario>> listarComentarios(){
         return ResponseEntity.ok(comentarioService.listarComentarios());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Comentario> buscarComentarioPorId(@PathVariable Integer id) {
+        Comentario comentario = comentarioService.buscarPorId(id);
+        return ResponseEntity.ok(comentario);
+    }
+
+    @PostMapping
+    public ResponseEntity<Comentario> criarComentario(@RequestBody Comentario comentario) {
+        Comentario novoComentario = comentarioService.criarComentario(comentario);
+        return ResponseEntity.status(HttpStatus.CREATED).body(novoComentario);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Comentario> atualizarComentario(@PathVariable Integer id, @RequestBody Comentario comentarioAtualizado) {
+        Comentario comentario = comentarioService.atualizarComentario(id, comentarioAtualizado);
+        return ResponseEntity.ok(comentario);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarComentario(@PathVariable Integer id) {
+        comentarioService.deletarComentario(id);
+        return ResponseEntity.noContent().build();
     }
 }

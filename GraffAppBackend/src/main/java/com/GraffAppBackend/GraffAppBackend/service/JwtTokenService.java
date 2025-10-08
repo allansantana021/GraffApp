@@ -32,16 +32,30 @@ public class JwtTokenService {
         }
     }
 
-    public String getSubjectFromToken(String token) {
+//    public String getSubjectFromToken(String token) {
+//        try {
+//            // Define o algoritmo HMAC SHA256 para verificar a assinatura do token passando a chave secreta definida
+//            Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
+//            return JWT.require(algorithm)
+//                    .withIssuer(ISSUER) // Define o emissor do token
+//                    .build()
+//                    .verify(token) // Verifica a validade do token
+//                    .getSubject(); // Obtém o assunto (neste caso, o nome de usuário) do token
+//        } catch (JWTVerificationException exception){
+//            throw new JWTVerificationException("Token inválido ou expirado.");
+//        }
+//    }
+
+    public Integer getUserIdFromToken(String token) {
         try {
-            // Define o algoritmo HMAC SHA256 para verificar a assinatura do token passando a chave secreta definida
             Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
             return JWT.require(algorithm)
-                    .withIssuer(ISSUER) // Define o emissor do token
+                    .withIssuer(ISSUER)
                     .build()
-                    .verify(token) // Verifica a validade do token
-                    .getSubject(); // Obtém o assunto (neste caso, o nome de usuário) do token
-        } catch (JWTVerificationException exception){
+                    .verify(token)
+                    .getClaim("userId")
+                    .asInt();
+        } catch (JWTVerificationException exception) {
             throw new JWTVerificationException("Token inválido ou expirado.");
         }
     }

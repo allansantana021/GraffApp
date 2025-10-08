@@ -3,6 +3,7 @@ package com.GraffAppBackend.GraffAppBackend.entity;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Usuario {
@@ -26,6 +27,11 @@ public class Usuario {
 
     @Column(name = "usuario_data_criacao")
     private Date dataCriacao;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "usuario_role",
+            joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<Role> roles;
 
     // Construtor padrão
     public Usuario() {}
@@ -77,5 +83,13 @@ public class Usuario {
 
     public void setDataCriacao(Date dataCriacao) {
         this.dataCriacao = dataCriacao;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }

@@ -1,60 +1,38 @@
 package com.GraffAppBackend.GraffAppBackend.service;
 
+
 import com.GraffAppBackend.GraffAppBackend.entity.Usuario;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Collections; // Importação adicionada para retornar lista vazia de authorities
+import java.util.stream.Collectors;
 
 public class UserDetailsImpl implements UserDetails {
+    private Usuario usuario;
 
-    private final Usuario usuario; // Classe de usuário que criamos anteriormente
-
-    public UserDetailsImpl(Usuario usuario) {
+    public UserDetailsImpl(Usuario usuario){
         this.usuario = usuario;
     }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        /*
-         * NOTA: Sua Entity 'Usuario' não tem um método 'getRoles()'.
-         * Por padrão, retornamos uma coleção vazia para compilação.
-         * Você deve substituir esta linha pela lógica de roles quando as implementar.
-         */
-        return Collections.emptyList();
+        var authorities = usuario.getRoles()
+                .stream()
+                .map(role -> new SimpleGrantedAuthority(role.getName().name()))
+                .collect(Collectors.toList());
+
+        System.out.println("PERMISSÕES PARA O USUÁRIO " + usuario.getEmail() + ": " + authorities);
+
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-        // CORRIGIDO: Retorna a senha usando o método correto 'getSenha()' da instância 'usuario'
         return usuario.getSenha();
     }
-
     @Override
     public String getUsername() {
-        // CORRIGIDO: Retorna o email (o nome de usuário) usando o método 'getEmail()' da instância 'usuario'
         return usuario.getEmail();
     }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-
 }

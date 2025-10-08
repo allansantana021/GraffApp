@@ -18,30 +18,30 @@ public class GrafiteController {
         this.grafiteService = grafiteService;
     }
 
-    @GetMapping("/listar")
+    @GetMapping
     public ResponseEntity<List<Grafite>> listarGrafites(){
         return ResponseEntity.ok(grafiteService.listarGrafites());
     }
 
-    @GetMapping("/buscarGrafitePorId")
+    @GetMapping("/{id}")
     public ResponseEntity<Grafite> buscarGrafitePorId(@PathVariable int id) {
         Grafite grafite = grafiteService.buscarPorId(id);
         return ResponseEntity.ok(grafite);
     }
 
-    @PostMapping("/criarGrafite")
+    @PostMapping
     public ResponseEntity<Grafite> criarGrafite(@RequestBody Grafite grafite) {
         Grafite novoGrafite = grafiteService.criarGrafite(grafite);
         return ResponseEntity.status(HttpStatus.CREATED).body(novoGrafite);
     }
 
-    @PutMapping("/atualizarGrafite")
+    @PutMapping("/{id}")
     public ResponseEntity<Grafite> atualizarGrafite(@PathVariable int id, @RequestBody Grafite grafiteAtualizado) {
         Grafite grafite = grafiteService.atualizarGrafite(id, grafiteAtualizado);
         return ResponseEntity.ok(grafite);
     }
 
-    @DeleteMapping("/deletarGrafite")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarGrafite(@PathVariable int id) {
         grafiteService.deletarGrafite(id);
         return ResponseEntity.noContent().build();

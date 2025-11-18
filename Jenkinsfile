@@ -13,7 +13,7 @@ pipeline {
                     // Atualiza o PATH se necessário
                     env.PATH = "/usr/bin:$PATH"
                     // Instalar as dependências Maven antes de compilar o projeto
-                    bat 'nvm.cmd clean install'  // Instala as dependências do Maven
+                    bat 'nvn clean install'  // Instala as dependências do Maven
                 }
             }
         }

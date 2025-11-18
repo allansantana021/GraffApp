@@ -12,8 +12,10 @@ pipeline {
                 script {
                     // Atualiza o PATH se necessário
                     env.PATH = "/usr/bin:$PATH"
-                    // Instalar as dependências Maven antes de compilar o projeto
-                    sh 'mvnw clean install'  // Instala as dependências do Maven
+                    dir('GraffAppBackend'){
+                        sh 'mvnw clean install'
+                    }
+                      // Instala as dependências do Maven
                 }
             }
         }
@@ -24,7 +26,7 @@ pipeline {
                     def appName = 'graffapp'
                     def imageTag = "${appName}:${env.BUILD_ID}"
 
-                    // Construir a imagem Docker
+                    dir('GraffAppBackend')
                     sh "docker build -t ${imageTag} ."
                 }
             }

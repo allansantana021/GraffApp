@@ -1,4 +1,4 @@
-pipeline 
+pipeline {
     agent any
     stages {
         stage('Verificar Repositório') {
@@ -46,10 +46,12 @@ pipeline
             }
         }
     }
-    post 
+    post {
         success {
             echo 'Deploy realizado com sucesso!'
         }
         failure {
             echo 'Houve um erro durante o deploy.'
         }
+}
+}

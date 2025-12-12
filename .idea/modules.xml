@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/GraffApp.iml" filepath="$PROJECT_DIR$/.idea/GraffApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/GraffAppBackend/GraffAppBackend.iml" filepath="$PROJECT_DIR$/GraffAppBackend/GraffAppBackend.iml" />
     </modules>
   </component>
 </project>

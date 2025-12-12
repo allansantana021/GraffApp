@@ -1,4 +1,4 @@
-package config;
+package com.GraffAppBackend.GraffAppBackend.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class OpenApi {
+public class OpenApiConfig {
 
     private static final String SECURITY_SCHEME_NAME = "BearerAuth";
 

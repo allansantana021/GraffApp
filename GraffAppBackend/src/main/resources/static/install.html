@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalar GraffApp</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #FF9800; /* Laranja */
+            color: white;
+            padding: 2em 0;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        .install-options {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        .option-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+        .option-card:hover {
+            transform: translateY(-5px);
+        }
+        .option-card h3 {
+            color: #4CAF50; /* Verde */
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+        .download-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .download-button:hover {
+            background-color: #45a049;
+        }
+        .back-link {
+            display: block;
+            margin-top: 40px;
+            font-size: 1.1em;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .icon {
+            font-size: 4em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Baixe o GraffApp Agora!</h1>
+    <p>Escolha a sua plataforma para começar a explorar a arte de rua.</p>
+</header>
+
+<div class="container">
+
+    <p>O GraffApp está disponível para as principais plataformas móveis e também pode ser acessado via Web (PWA).</p>
+
+    <div class="install-options">
+
+        <div class="option-card">
+            <span class="icon">🤖</span>
+            <h3>Android</h3>
+            <p>Baixe na Google Play Store para a melhor experiência em seu smartphone ou tablet Android.</p>
+            <a href="#" class="download-button" target="_blank">Google Play</a>
+        </div>
+
+        <div class="option-card">
+            <span class="icon">🍎</span>
+            <h3>iOS (iPhone/iPad)</h3>
+            <p>Instale via App Store e leve a arte urbana com você para todos os lugares no seu dispositivo Apple.</p>
+            <a href="#" class="download-button" target="_blank">App Store</a>
+        </div>
+
+        <div class="option-card">
+            <span class="icon">💻</span>
+            <h3>Web (PWA)</h3>
+            <p>Acesse diretamente do seu navegador em qualquer dispositivo. Instale como um Progressive Web App.</p>
+            <a href="#" class="download-button" target="_blank">Acessar Versão Web</a>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back-link">← Voltar para a Página Principal</a>
+
+</div>
+
+</body>
+</html>

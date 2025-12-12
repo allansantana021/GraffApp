@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraffApp - Conectando a Arte Urbana</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #4CAF50; /* Verde vibrante */
+            color: white;
+            padding: 2em 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        #about, #features {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .feature-list li {
+            background: #e9e9e9;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 5px;
+            width: 30%;
+            min-width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        #timeline .timeline-item {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: #ccc;
+            transform: translateX(-50%);
+        }
+        .timeline-item .date {
+            width: 50%;
+            padding-right: 20px;
+            text-align: right;
+            font-weight: bold;
+            color: #333;
+        }
+        .timeline-item .content {
+            width: 50%;
+            padding-left: 20px;
+            border-left: 2px solid #4CAF50;
+            position: relative;
+        }
+        #dev-summary, #tech {
+            text-align: center;
+        }
+        .tech-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .tech-list li {
+            background: #ddd;
+            padding: 10px 15px;
+            border-radius: 20px;
+        }
+        /* Botão */
+        .cta-button {
+            display: inline-block;
+            background-color: #FF9800; /* Laranja chamativo */
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            background-color: #F57C00;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>GraffApp 🎨</h1>
+    <p>A plataforma que mapeia, conecta e celebra a arte de rua globalmente.</p>
+    <a href="install.html" class="cta-button">Baixar e Instalar o GraffApp!</a>
+</header>
+
+<div class="container">
+
+    <section id="about">
+        <h2>O que é o GraffApp?</h2>
+        <p><strong>Descrição Geral do App:</strong> O GraffApp nasceu da necessidade de catalogar e dar visibilidade à vibrante comunidade do grafite e da arte urbana. É um aplicativo móvel e web que permite a artistas e entusiastas mapear geograficamente obras, documentar sua história, interagir com a comunidade e descobrir novos talentos e murais em tempo real. Deixe de passar despercebido por obras incríveis; o GraffApp é o seu guia definitivo para o museu a céu aberto.</p>
+    </section>
+
+    <section id="features">
+        <h2>Principais Funcionalidades</h2>
+        <ul class="feature-list">
+            <li><h3>🗺️ Mapeamento Interativo</h3><p>Localize grafites e murais em um mapa, com detalhes sobre o artista, data da criação e status da obra.</p></li>
+            <li><h3>📸 Documentação de Obras</h3><p>Artistas podem criar perfis para suas obras, subindo fotos de alta resolução e a história por trás da arte.</p></li>
+            <li><h3>💬 Comunidade e Engajamento</h3><p>Sistema de likes, comentários e compartilhamento. Conecte-se diretamente com artistas e outros entusiastas.</p></li>
+            <li><h3>🔔 Notificações de Novidades</h3><p>Receba alertas sobre novas obras em sua área ou de artistas que você segue.</p></li>
+        </ul>
+    </section>
+
+    <section id="timeline">
+        <h2>Cronograma de Desenvolvimento</h2>
+        <div class="timeline-item">
+            <div class="date">Q1 2025</div>
+            <div class="content">Conceituação, pesquisa de mercado e prototipagem inicial (Wireframes e Mockups).</div>
+        </div>
+        <div class="timeline-item">
+            <div class="date">Q2 2025</div>
+            <div class="content">Desenvolvimento do Backend (API) e Database. Versão Alfa do App.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="date">Q3 2025</div>
+            <div class="content">Integração do Mapeamento (Geolocalização) e Desenvolvimento das funcionalidades de Comunidade. Lançamento da Versão Beta Fechada.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="date">Q4 2025</div>
+            <div class="content">Testes de Usabilidade, Refinamento de UI/UX e Preparação para o Lançamento Oficial. Versão 1.0.</div>
+        </div>
+
+        <div id="dev-summary" style="margin-top: 50px; text-align: center;">
+            <h3>Resumo do Desenvolvimento</h3>
+            <p>O desenvolvimento do GraffApp foi um processo ágil e iterativo, focado em criar uma experiência de usuário intuitiva e robusta para lidar com dados geoespaciais e alta interatividade social. A arquitetura foi desenhada para ser escalável, garantindo que a plataforma possa suportar um crescimento rápido da comunidade e um volume crescente de obras catalogadas.</p>
+        </div>
+    </section>
+
+    <section id="tech">
+        <h2>Tecnologias Utilizadas</h2>
+        <ul class="tech-list">
+            <li>Frontend: React Native (Mobile)</li>
+            <li>Backend: Node.js (Express)</li>
+            <li>Banco de Dados: MongoDB (NoSQL)</li>
+            <li>Mapeamento: Mapbox / Google Maps API</li>
+            <li>Hospedagem: AWS / Vercel</li>
+        </ul>
+    </section>
+
+    <section style="text-align: center;">
+        <a href="install.html" class="cta-button">Começar a Instalar</a>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 GraffApp. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>

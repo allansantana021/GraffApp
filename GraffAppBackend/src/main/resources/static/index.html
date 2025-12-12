@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraffApp - Conectando a Arte Urbana</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #4CAF50; /* Verde vibrante */
+            color: white;
+            padding: 2em 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        #about, #features, #cost-estimate, #project-images {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .feature-list li {
+            background: #e9e9e9;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 5px;
+            width: 30%;
+            min-width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            /* Configuração da Transição para a Animação */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        /* Efeito de Zoom/Engordar ao passar o mouse */
+        .feature-list li:hover {
+            transform: scale(1.05); /* Aumenta o tamanho em 5% */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Sombra mais forte para destaque */
+        }
+
+        #dev-summary, #tech, #cost-summary {
+            text-align: center;
+        }
+        .tech-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .tech-list li {
+            background: #ddd;
+            padding: 10px 15px;
+            border-radius: 20px;
+        }
+        /* Botão */
+        .cta-button {
+            display: inline-block;
+            background-color: #FF9800; /* Laranja chamativo */
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            background-color: #F57C00;
+        }
+        /* Estilos específicos para a estimativa de custo */
+        .cost-detail-list {
+            list-style: none;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 600px;
+            font-size: 1.4em;
+            color: #333;
+        }
+        .cost-detail-list li strong {
+            color: #FF9800;
+            font-size: 1.2em;
+            display: block;
+            margin-top: 10px;
+        }
+        .disclaimer {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+        /* Estilos para a galeria de imagens (Enfileiradas e Redimensionadas) */
+        .image-gallery {
+            display: flex;
+            flex-direction: column; /* Coloca as imagens em coluna */
+            align-items: center;
+            gap: 40px; /* Espaçamento maior entre os blocos de imagem */
+            padding-top: 20px;
+            text-align: center;
+        }
+        .image-gallery figure {
+            margin: 0;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            max-width: 100%;
+        }
+        .image-gallery img {
+            width: 100%;
+            max-width: 650px; /* Largura máxima reduzida para caber melhor na visualização */
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+        }
+        .image-gallery figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+        .image-gallery .smaller-img img {
+             max-width: 400px; /* Para as imagens de código ou menus */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>GraffApp 🎨</h1>
+    <p>A plataforma que mapeia, conecta e celebra a arte de rua globalmente.</p>
+    <a href="install.html" class="cta-button">Baixar e Instalar o GraffApp!</a>
+</header>
+
+<div class="container">
+
+    <section id="about">
+        <h2>O que é o GraffApp?</h2>
+        <p><strong>Descrição Geral do App:</strong> O GraffApp nasceu da necessidade de catalogar e dar visibilidade à vibrante comunidade do grafite e da arte urbana. É um aplicativo móvel construído em React Native (TypeScript) com um backend robusto em Java Spring Boot. Nossa missão é criar um inventário digital vivo das obras de rua, permitindo que artistas e entusiastas postem, gerenciem (CRUD), interajam e descubram novas obras com precisão de geolocalização. Deixe de passar despercebido por obras incríveis; o GraffApp é o seu guia definitivo para o museu a céu aberto e a sua ponte para a comunidade global do grafite, tudo isso garantido pela segurança e performance do JWT na API REST.</p>
+    </section>
+
+    <section id="features">
+        <h2>Principais Funcionalidades</h2>
+        <ul class="feature-list">
+            <li>
+                <h3>🗺️ Mapeamento Interativo e Geolocalização</h3>
+                <p>Nossa funcionalidade de geolocalização permite que você localize e descubra grafites e murais** em um mapa dinâmico em tempo real. Cada obra é registrada com sua latitude e longitude exatas (RF005), permitindo que você encontre rotas para a arte urbana mais próxima e visualize detalhes como artista, data de criação e estado de conservação da obra. (Feed de mais recentes) é alimentado por essa precisão geográfica.</p>
+            </li>
+            <li>
+                <h3>📸 Documentação, CRUD e Segurança </h3>
+                <p>Artistas têm controle total sobre seu portfólio. Podem **criar, editar e excluir** suas próprias postagens (RF018) com total segurança. O sistema assegura a qualidade e a performance, validando imagens (formato e tamanho máximo, RF020) e registrando a data e hora exatas da postagem (RF008). O backend em Spring Boot garante que apenas o proprietário possa alterar o conteúdo.</p>
+            </li>
+            <li>
+                <h3>💬 Comunidade e Engajamento</h3>
+                <p>O coração do GraffApp é a interação. Usuários podem curtir e remover curtidas, além de comentar em qualquer obra. O sistema exibe de forma organizada todos os comentários, fomentando a discussão e o reconhecimento da comunidade. Este módulo garante uma experiência de rede social completa e engajadora.</p>
+            </li>
+            <li>
+                <h3>🔒 Autenticação e Personalização Segura</h3>
+                <p>A segurança é fundamental. Todas as rotas privadas são protegidas por Autenticação JWT e o sistema bloqueia qualquer ação de usuários não autenticados. Além disso, oferecemos personalização visual, permitindo que o usuário escolha temas de interface (muros, texturas) que são salvos e persistidos, garantindo uma experiência única e segura.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="dev-summary" style="text-align: center;">
+        <h3>Resumo do Desenvolvimento</h3>
+        <p>O desenvolvimento do GraffApp foi um processo ágil e iterativo, focado em criar uma experiência de usuário intuitiva e robusta para lidar com dados geoespaciais e alta interatividade social. A arquitetura foi desenhada para ser escalável, garantindo que a plataforma possa suportar um crescimento rápido da comunidade e um volume crescente de obras catalogadas.</p>
+    </section>
+
+    <section id="tech">
+        <h2>Tecnologias Utilizadas</h2>
+        <ul class="tech-list">
+            <li>Frontend: React Native (TypeScript)</li>
+            <li>Backend: Java Spring Boot (API REST)</li>
+            <li>Banco de Dados: MongoDB (NoSQL) / PostgreSQL</li>
+            <li>Segurança: JWT</li>
+            <li>Hospedagem: AWS / Cloud</li>
+        </ul>
+    </section>
+    <section id="cost-estimate">
+        <h2 style="color: #FF9800;">💰 Estimativa de Custo do Projeto</h2>
+
+        <div id="cost-summary">
+            <p>Com base nos requisitos funcionais de Cadastro, CRUD, Interações Sociais e Segurança JWT, o custo médio estimado para o desenvolvimento completo (Backend em Spring Boot + Frontend em React Native) é:</p>
+
+            <ul class="cost-detail-list">
+                <li>Valor Estimado de Desenvolvimento: <strong>R$ 36.000,00</strong></li>
+            </ul>
+
+            <div class="disclaimer">
+                ⚠️ Observação Importante: Este valor é uma estimativa de custo de mão de obra para o desenvolvimento das funcionalidades descritas. Custos contínuos de infraestrutura (servidores, bancos de dados, APIs), manutenção e licenças não estão inclusos.
+            </div>
+        </div>
+    </section>
+
+    <section style="text-align: center;">
+        <a href="install.html" class="cta-button">Começar a Instalar</a>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 GraffApp. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
